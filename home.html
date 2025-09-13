@@ -1,0 +1,136 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>HTW Data - Home</title>
+<style>
+:root{--gap:16px;}
+*{box-sizing:border-box}
+body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.45;}
+h1{font-size:1.6rem; margin:0 0 1rem;}
+h2{font-size:1.3rem; margin:1.5rem 0 1rem; color:#374151;}
+p{margin:0 0 1rem; color:#6b7280;}
+.section{margin-top: 28px;}
+
+/* Header Styles */
+.header{background:#fff; border-bottom:1px solid #e5e7eb; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.header h1{margin:0; font-size:1.5rem; color:#1f2937;}
+.menu-container{position:relative;}
+.menu-button{background:none; border:none; cursor:pointer; padding:8px; border-radius:6px; display:flex; align-items:center; justify-content:center; transition:background-color 0.2s;}
+.menu-button:hover{background:#f3f4f6;}
+.menu-icon{width:24px; height:24px; display:flex; flex-direction:column; justify-content:space-around;}
+.menu-icon span{display:block; height:3px; width:100%; background:#374151; border-radius:2px; transition:0.3s;}
+.dropdown{position:absolute; top:100%; right:0; background:#fff; border:1px solid #e5e7eb; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); min-width:150px; opacity:0; visibility:hidden; transform:translateY(-10px); transition:all 0.2s ease;}
+.dropdown.show{opacity:1; visibility:visible; transform:translateY(0);}
+.dropdown a{display:block; padding:12px 16px; text-decoration:none; color:#374151; border-bottom:1px solid #f3f4f6; transition:background-color 0.2s;}
+.dropdown a:last-child{border-bottom:none;}
+.dropdown a:hover{background:#f9fafb;}
+.main-content{margin:24px; max-width:800px;}
+
+.card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:24px; margin-bottom:24px; box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+.stats{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin:24px 0;}
+.stat{background:#f9fafb; padding:16px; border-radius:8px; text-align:center;}
+.stat-number{font-size:2rem; font-weight:bold; color:#1f2937;}
+.stat-label{font-size:0.9rem; color:#6b7280; margin-top:4px;}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .header { padding: 12px 16px; }
+  .main-content { margin: 16px; }
+  h1 { font-size: 1.4rem; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .header { padding: 10px 12px; }
+  .main-content { margin: 12px; }
+  h1 { font-size: 1.2rem; }
+  .card { padding: 16px; }
+}
+</style>
+</head><body><header class="header">
+  <h1>HTW Data</h1>
+  <div class="menu-container">
+    <button class="menu-button" id="menuButton" aria-label="Menu">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <nav class="dropdown" id="dropdown">
+      <a href="home.html">Home</a>
+      <a href="new-user.html">New User</a>
+      <a href="dataset.html">Dataset</a>
+    </nav>
+  </div>
+</header>
+<div class="main-content">
+  <div class="card">
+    <h1>Welcome to HTW Data</h1>
+    <p>The Hawaii Tech Week 2025 audience data platform provides insights into our community of tech professionals, entrepreneurs, and innovators across Hawaii and beyond.</p>
+  </div>
+
+  <div class="card">
+    <h2>Dataset Overview</h2>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">2,597</div>
+        <div class="stat-label">Total Participants</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Industries</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Cities</div>
+      </div>
+    </div>
+    <p>Our dataset includes professionals from diverse backgrounds including software technology, healthcare biotech, education, consulting, and many other industries.</p>
+  </div>
+
+  <div class="card">
+    <h2>Quick Actions</h2>
+    <p><strong><a href="dataset.html">View Dataset</a></strong> - Browse, search, and filter the complete HTW2025 audience data</p>
+    <p><strong><a href="new-user.html">New User Guide</a></strong> - Learn how to navigate and use the data platform</p>
+  </div>
+
+  <div class="card">
+    <h2>About HTW 2025</h2>
+    <p>Hawaii Tech Week is Hawaii's premier technology conference, bringing together innovators, entrepreneurs, and tech professionals from across the Pacific and beyond. Our 2025 audience represents a diverse community of forward-thinking individuals driving technological advancement in Hawaii and the broader Pacific region.</p>
+  </div>
+</div>
+
+<script>
+// Header Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const menuButton = document.getElementById('menuButton');
+  const dropdown = document.getElementById('dropdown');
+  
+  // Toggle dropdown when menu button is clicked
+  menuButton.addEventListener('click', function(e) {
+    e.stopPropagation();
+    dropdown.classList.toggle('show');
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!menuButton.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.remove('show');
+    }
+  });
+  
+  // Close dropdown when pressing Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      dropdown.classList.remove('show');
+    }
+  });
+  
+  // Handle menu item clicks
+  dropdown.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+      dropdown.classList.remove('show');
+    }
+  });
+});
+</script>
+
+</body></html>
