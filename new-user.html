@@ -1,187 +1,225 @@
 <!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>HTW Data - New User Guide</title>
-<style>
-:root{--gap:16px;}
-*{box-sizing:border-box}
-body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.45;}
-h1{font-size:1.6rem; margin:0 0 1rem;}
-h2{font-size:1.3rem; margin:1.5rem 0 1rem; color:#374151;}
-h3{font-size:1.1rem; margin:1rem 0 0.5rem; color:#4b5563;}
-p{margin:0 0 1rem; color:#6b7280;}
-ul{margin:0 0 1rem; padding-left:1.5rem;}
-li{margin:0 0 0.5rem;}
-.section{margin-top: 28px;}
-
-/* Header Styles */
-.header{background:#fff; border-bottom:1px solid #e5e7eb; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.header h1{margin:0; font-size:1.5rem; color:#1f2937;}
-.menu-container{position:relative;}
-.menu-button{background:none; border:none; cursor:pointer; padding:8px; border-radius:6px; display:flex; align-items:center; justify-content:center; transition:background-color 0.2s;}
-.menu-button:hover{background:#f3f4f6;}
-.menu-icon{width:24px; height:24px; display:flex; flex-direction:column; justify-content:space-around;}
-.menu-icon span{display:block; height:3px; width:100%; background:#374151; border-radius:2px; transition:0.3s;}
-.dropdown{position:absolute; top:100%; right:0; background:#fff; border:1px solid #e5e7eb; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); min-width:150px; opacity:0; visibility:hidden; transform:translateY(-10px); transition:all 0.2s ease;}
-.dropdown.show{opacity:1; visibility:visible; transform:translateY(0);}
-.dropdown a{display:block; padding:12px 16px; text-decoration:none; color:#374151; border-bottom:1px solid #f3f4f6; transition:background-color 0.2s;}
-.dropdown a:last-child{border-bottom:none;}
-.dropdown a:hover{background:#f9fafb;}
-.main-content{margin:24px; max-width:800px;}
-
-.card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:24px; margin-bottom:24px; box-shadow:0 1px 3px rgba(0,0,0,0.1);}
-.highlight{background:#f0f9ff; border:1px solid #0ea5e9; border-radius:8px; padding:16px; margin:16px 0;}
-.code{background:#f3f4f6; border-radius:4px; padding:2px 6px; font-family:monospace; font-size:0.9rem;}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .header { padding: 12px 16px; }
-  .main-content { margin: 16px; }
-  h1 { font-size: 1.4rem; }
-}
-
-@media (max-width: 480px) {
-  .header { padding: 10px 12px; }
-  .main-content { margin: 12px; }
-  h1 { font-size: 1.2rem; }
-  .card { padding: 16px; }
-}
-</style>
-</head><body><header class="header">
-  <h1>HTW Data</h1>
-  <div class="menu-container">
-    <button class="menu-button" id="menuButton" aria-label="Menu">
-      <div class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
+    <style>
+    :root{--gap:16px;}
+    *{box-sizing:border-box}
+    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.45;}
+    h1{font-size:1.6rem; margin:0 0 1rem;}
+    h2{font-size:1.3rem; margin:1.5rem 0 1rem; color:#374151;}
+    h3{font-size:1.1rem; margin:1rem 0 0.5rem; color:#4b5563;}
+    p{margin:0 0 1rem; color:#6b7280;}
+    ul{margin:0 0 1rem; padding-left:1.5rem;}
+    li{margin:0 0 0.5rem;}
+    .section{margin-top: 28px;}
+    
+    /* Header Styles */
+    .header{background:#fff; border-bottom:1px solid #e5e7eb; padding:12px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+    .header h1{margin:0; font-size:1.5rem; color:#1f2937;}
+    .menu-container{position:relative;}
+    .menu-button{background:none; border:none; cursor:pointer; padding:8px; border-radius:6px; display:flex; align-items:center; justify-content:center; transition:background-color 0.2s;}
+    .menu-button:hover{background:#f3f4f6;}
+    .menu-icon{width:24px; height:24px; display:flex; flex-direction:column; justify-content:space-around;}
+    .menu-icon span{display:block; height:3px; width:100%; background:#374151; border-radius:2px; transition:0.3s;}
+    .dropdown{position:absolute; top:100%; right:0; background:#fff; border:1px solid #e5e7eb; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); min-width:150px; opacity:0; visibility:hidden; transform:translateY(-10px); transition:all 0.2s ease;}
+    .dropdown.show{opacity:1; visibility:visible; transform:translateY(0);}
+    .dropdown a{display:block; padding:12px 16px; text-decoration:none; color:#374151; border-bottom:1px solid #f3f4f6; transition:background-color 0.2s;}
+    .dropdown a:last-child{border-bottom:none;}
+    .dropdown a:hover{background:#f9fafb;}
+    .main-content{margin:24px; max-width:800px;}
+    
+    .card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:24px; margin-bottom:24px; box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+    .highlight{background:#f0f9ff; border:1px solid #0ea5e9; border-radius:8px; padding:16px; margin:16px 0;}
+    .code{background:#f3f4f6; border-radius:4px; padding:2px 6px; font-family:monospace; font-size:0.9rem;}
+    
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .header { padding: 12px 16px; }
+      .main-content { margin: 16px; }
+      h1 { font-size: 1.4rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .header { padding: 10px 12px; }
+      .main-content { margin: 12px; }
+      h1 { font-size: 1.2rem; }
+      .card { padding: 16px; }
+    }
+    </style>
+    </head><body><header class="header">
+      <h1>HTW Data</h1>
+      <div class="menu-container">
+        <button class="menu-button" id="menuButton" aria-label="Menu">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <nav class="dropdown" id="dropdown">
+          <a href="home.html">Home</a>
+          <a href="new-user.html">New User</a>
+          <a href="dataset.html">Dataset</a>
+        </nav>
       </div>
-    </button>
-    <nav class="dropdown" id="dropdown">
-      <a href="home.html">Home</a>
-      <a href="new-user.html">New User</a>
-      <a href="dataset.html">Dataset</a>
-    </nav>
-  </div>
-</header>
-<div class="main-content">
-  <div class="card">
-    <h1>New User Guide</h1>
-    <p>Welcome to the HTW Data platform! This guide will help you navigate and make the most of the Hawaii Tech Week 2025 audience dataset.</p>
-  </div>
-
-  <div class="card">
-    <h2>Getting Started</h2>
-    <h3>Navigation</h3>
-    <ul>
-      <li><strong>Home</strong> - Overview and statistics about the dataset</li>
-      <li><strong>New User</strong> - This guide page</li>
-      <li><strong>Dataset</strong> - The main data table with search and filter capabilities</li>
-    </ul>
+    </header>
+    <div class="main-content">
+      <div class="card">
+        <h1>Join HTW Network</h1>
+        <p>Add your information to the Hawaii Tech Week 2025 network dataset. Connect with other professionals in Hawaii's tech community.</p>
+      </div>
     
-    <div class="highlight">
-      <strong>Quick Tip:</strong> Click the menu icon (☰) in the top-right corner to access navigation at any time.
+      <div class="card">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+          <div style="display: grid; gap: 16px; max-width: 500px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div>
+                <label for="firstName" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required 
+                       style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+              </div>
+              <div>
+                <label for="lastName" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required 
+                       style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">Email Address *</label>
+              <input type="email" id="email" name="email" required 
+                     style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+            </div>
+            
+            <div>
+              <label for="role" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">Role / Job Title *</label>
+              <input type="text" id="role" name="role" required placeholder="e.g., Software Engineer, CEO, Product Manager"
+                     style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+            </div>
+            
+            <div>
+              <label for="city" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">City *</label>
+              <input type="text" id="city" name="city" required placeholder="e.g., Honolulu, Hilo, Kailua"
+                     style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+            </div>
+            
+            <div>
+              <label for="state" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">State / Province *</label>
+              <input type="text" id="state" name="state" required maxlength="2" placeholder="e.g., HI, CA, NY"
+                     style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; text-transform: uppercase;"
+                     pattern="[A-Za-z]{2}" title="Please enter exactly 2 letters">
+              <small style="color: #6b7280; font-size: 12px;">2-letter code only</small>
+            </div>
+            
+            <div>
+              <label for="country" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">Country *</label>
+              <input type="text" id="country" name="country" required placeholder="e.g., USA, Canada, Japan"
+                     style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+            </div>
+            
+            <div>
+              <label for="industry" style="display: block; margin-bottom: 4px; font-weight: 500; color: #374151;">Industry *</label>
+              <input type="text" id="industry" name="industry" required placeholder="e.g., Software Technology, Healthcare Biotech, Education EdTech"
+                     style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;">
+            </div>
+            
+            <button type="submit" 
+                    style="background: #3b82f6; color: white; padding: 12px 24px; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background-color 0.2s;"
+                    onmouseover="this.style.background='#2563eb'" 
+                    onmouseout="this.style.background='#3b82f6'">
+              Add to Network
+            </button>
+          </div>
+        </form>
+        
+        <div class="highlight" style="margin-top: 20px;">
+          <strong>Privacy Notice:</strong> Your name and email address will not be displayed in the public dataset. Only your role, location, and industry information will be visible to other users.
+        </div>
+      </div>
+    
     </div>
-  </div>
-
-  <div class="card">
-    <h2>Using the Dataset</h2>
     
-    <h3>Searching and Filtering</h3>
-    <ul>
-      <li>Use the search box to filter rows by any text content</li>
-      <li>Search across all columns simultaneously</li>
-      <li>Results update in real-time as you type</li>
-    </ul>
-
-    <h3>Sorting Data</h3>
-    <ul>
-      <li>Click any column header to sort by that column</li>
-      <li>Click again to reverse the sort order</li>
-      <li>Look for ▲ (ascending) or ▼ (descending) arrows</li>
-    </ul>
-
-    <h3>Data Columns</h3>
-    <ul>
-      <li><strong>Role / Job Title</strong> - Professional role or position</li>
-      <li><strong>City</strong> - Location city</li>
-      <li><strong>State / Province</strong> - State or province</li>
-      <li><strong>Country</strong> - Country location</li>
-      <li><strong>Industry</strong> - Industry sector or field</li>
-      <li><strong>CONFIRM_TIME</strong> - Registration confirmation timestamp</li>
-      <li><strong>LAST_CHANGED</strong> - Last data update timestamp</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Search Tips</h2>
+    <script>
+    // Header Menu Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.getElementById('menuButton');
+      const dropdown = document.getElementById('dropdown');
+      
+      // Toggle dropdown when menu button is clicked
+      menuButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!menuButton.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.remove('show');
+        }
+      });
+      
+      // Close dropdown when pressing Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          dropdown.classList.remove('show');
+        }
+      });
+      
+      // Handle menu item clicks
+      dropdown.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          dropdown.classList.remove('show');
+        }
+      });
+      
+      // Form submission handling
+      const form = document.getElementById('registrationForm');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+          firstName: formData.get('firstName').trim(),
+          lastName: formData.get('lastName').trim(),
+          email: formData.get('email').trim(),
+          role: formData.get('role').trim(),
+          city: formData.get('city').trim(),
+          state: formData.get('state').trim().toUpperCase(),
+          country: formData.get('country').trim(),
+          industry: formData.get('industry').trim()
+        };
+        
+        // Validate state/province is exactly 2 letters
+        if (!/^[A-Z]{2}$/.test(data.state)) {
+          alert('State/Province must be exactly 2 letters (e.g., HI, CA, NY)');
+          return;
+        }
+        
+        // Create timestamps
+        const now = new Date();
+        const timestamp = now.toISOString().slice(0, 19).replace('T', ' ');
+        
+        // Create new table row data (excluding name and email from display)
+        const newRowData = {
+          role: data.role,
+          city: data.city,
+          state: data.state,
+          country: data.country,
+          industry: data.industry,
+          confirmTime: timestamp,
+          lastChanged: timestamp
+        };
+        
+        // Store the data in localStorage to pass to dataset page
+        localStorage.setItem('newUserData', JSON.stringify(newRowData));
+        
+        // Show success message
+        alert('Registration successful! Your information has been added to the network. Redirecting to dataset...');
+        
+        // Redirect to dataset page
+        window.location.href = 'dataset.html';
+      });
+    });
+    </script>
     
-    <h3>Effective Search Strategies</h3>
-    <ul>
-      <li><strong>Industry Search:</strong> Try terms like "software", "healthcare", "education"</li>
-      <li><strong>Location Search:</strong> Search for "Honolulu", "HI", "USA", or specific cities</li>
-      <li><strong>Role Search:</strong> Look for "CEO", "engineer", "manager", "analyst"</li>
-      <li><strong>Combined Search:</strong> Use multiple terms like "AI engineer" or "Honolulu software"</li>
-    </ul>
-
-    <div class="highlight">
-      <strong>Pro Tip:</strong> The search is case-insensitive and searches across all visible text in each row.
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Mobile Usage</h2>
-    <p>The platform is fully responsive and works great on mobile devices:</p>
-    <ul>
-      <li>Tables scroll horizontally on smaller screens</li>
-      <li>Touch-friendly interface elements</li>
-      <li>Optimized search and navigation for mobile</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Need Help?</h2>
-    <p>If you encounter any issues or have questions about the data:</p>
-    <ul>
-      <li>Check the <a href="home.html">Home page</a> for dataset overview and statistics</li>
-      <li>Try different search terms if you're not finding what you're looking for</li>
-      <li>Remember that the data represents HTW 2025 participants and may include diverse professional backgrounds</li>
-    </ul>
-    
-    <p><strong>Ready to explore?</strong> <a href="dataset.html">Go to the Dataset →</a></p>
-  </div>
-</div>
-
-<script>
-// Header Menu Functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const menuButton = document.getElementById('menuButton');
-  const dropdown = document.getElementById('dropdown');
-  
-  // Toggle dropdown when menu button is clicked
-  menuButton.addEventListener('click', function(e) {
-    e.stopPropagation();
-    dropdown.classList.toggle('show');
-  });
-  
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function(e) {
-    if (!menuButton.contains(e.target) && !dropdown.contains(e.target)) {
-      dropdown.classList.remove('show');
-    }
-  });
-  
-  // Close dropdown when pressing Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      dropdown.classList.remove('show');
-    }
-  });
-  
-  // Handle menu item clicks
-  dropdown.addEventListener('click', function(e) {
-    if (e.target.tagName === 'A') {
-      dropdown.classList.remove('show');
-    }
-  });
-});
-</script>
-
-</body></html>
+    </body></html>
